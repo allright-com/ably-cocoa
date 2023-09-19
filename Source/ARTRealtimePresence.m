@@ -237,10 +237,7 @@ dispatch_async(_queue, ^{
     @try {
         return [_channel.restChannel.presence history:query callback:callback error:errorPtr];
     }
-    @catch (NSError *error) {
-        if (errorPtr) {
-            *errorPtr = error;
-        }
+    @catch (NSException *exp) {
         return false;
     }
 }
